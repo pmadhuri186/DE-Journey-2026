@@ -16,3 +16,5 @@ with cte as(
 select avg(salary) as avr_sal,dept from empn group by dept
 )
 select * from empn where dept='Sales' and salary>(select avr_sal from cte where dept='Sales');
+
+-- Day 1 committed by madhuri
