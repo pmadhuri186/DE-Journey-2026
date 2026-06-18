@@ -1,0 +1,18 @@
+create table if not exists empn(
+id int,
+name varchar(50),
+dept varchar(50),
+salary int,
+city varchar(50)
+);
+
+insert into empn values (1,'Raj','Sales',45000,'Hyderabad'),(2,'Priya','IT',80000,'Banglore'),(3,'Amit','Sales',55000,'Hyderabad'),(4,'Sneha','HR',42000,'Chennai');
+
+select name,salary from empn where dept='IT';
+
+select * from empn order by salary;
+
+with cte as(
+select avg(salary) as avr_sal,dept from empn group by dept
+)
+select * from empn where dept='Sales' and salary>(select avr_sal from cte where dept='Sales');
