@@ -1,0 +1,6 @@
+select name,rn
+from
+(
+  select name,row number() over(partition by dept order by salary desc) as rn from emp 
+) as ranked_emp
+where rn in (1,2);
