@@ -1,4 +1,4 @@
-Query 1: Find the first two highest salary employee in each dept
+**Query 1: Find the first two highest salary employee in each dept**
 
 select name,rn
 from
