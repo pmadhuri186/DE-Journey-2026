@@ -1,6 +1,12 @@
 select name,rn
 from
 (
-  select name,row number() over(partition by dept order by salary desc) as rn from emp 
+  select name,row_number() over(partition by dept order by salary desc) as rn from empn 
 ) as ranked_emp
 where rn in (1,2);
+
+O/p: name	   rn
+	   Amit	   1
+	   Priya	 1
+	   Raj	   2
+	   Sneha	 1
