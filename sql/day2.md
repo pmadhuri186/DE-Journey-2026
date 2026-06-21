@@ -6,5 +6,7 @@ from
   select name,row_number() over(partition by dept order by salary desc) as rn from empn 
 ) as ranked_emp
 where rn in (1,2);
+
 **O/p:** ![Day02 Query1 Top2 per dept](screenshots/Day02_query1_output.jpg)
+
 Query 2: 
