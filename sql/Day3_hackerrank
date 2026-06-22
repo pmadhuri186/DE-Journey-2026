@@ -1,0 +1,6 @@
+** Binary tree nodes problem : **
+
+select n,case when p is null then 'Root' when n in (select distinct p from bst) and p is not null then 'Inner' else 'Leaf'
+end as typ
+from bst
+order by n;
