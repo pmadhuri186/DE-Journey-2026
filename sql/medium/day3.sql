@@ -17,3 +17,17 @@ join manager m on m.company_code=c.company_code
 join employee e on e.company_code=c.company_code
 group by c.company_code,founder
 order by c.company_code;
+
+--Problem: Contest Leaderboard
+--Source: HackerRank
+--Concepts: join, group by, subquery
+select t.hacker_id,t.name,sum(max_score) as total
+from
+(
+select h.hacker_id,name,s.challenge_id,max(score) as max_score from hackers h
+join submissions s on s.hacker_id=h.hacker_id
+group by h.hacker_id,s.challenge_id,name
+)t
+group by t.hacker_id,t.name
+having total>0
+order by total desc,t.hacker_id asc;
